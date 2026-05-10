@@ -255,13 +255,7 @@ JobMate-AI/
 
 [MIT](LICENSE)
 
----
 
-## 📮 联系我们
-
-- 项目主页：https://github.com/your-username/JobMate-AI
-- 问题反馈：https://github.com/your-username/JobMate-AI/issues
-- 演示地址：https://your-username.github.io/JobMate-AI
 
 ---
 
