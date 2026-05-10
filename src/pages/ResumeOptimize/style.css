@@ -1,0 +1,207 @@
+/* 分析按钮动画 */
+.analyze-btn {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.analyze-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+.analyze-btn:not(:disabled):active {
+  transform: translateY(0);
+}
+
+/* 评分圆环动画 */
+.score-text {
+  font-size: 28px;
+  font-weight: bold;
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 结果卡片动画 */
+.result-card {
+  animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 优化按钮动画 */
+.optimize-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.optimize-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.optimize-btn:hover::before {
+  left: 100%;
+}
+
+.optimize-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(24, 144, 255, 0.4);
+}
+
+/* 标签动画 */
+.animate-tag {
+  animation: fadeInScale 0.4s ease-out backwards;
+}
+
+.animate-tag:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.animate-tag:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.animate-tag:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 优化成功动画 */
+.optimize-success {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 优化内容卡片动画 */
+.optimized-content-card {
+  animation: slideInUp 0.5s ease-out;
+  animation-delay: 0.3s;
+  animation-fill-mode: backwards;
+}
+
+/* 下载按钮动画 */
+.download-btn {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(82, 196, 26, 0.4);
+}
+
+/* 进度条动画 */
+.ant-progress-circle-path {
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+/* 文件拖拽区域动画 */
+.ant-upload-drag {
+  transition: all 0.3s ease;
+}
+
+.ant-upload-drag:hover {
+  border-color: #1890ff;
+  transform: scale(1.01);
+}
+
+/* 输入框焦点动画 */
+.ant-input:focus {
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 文本域焦点动画 */
+textarea.ant-input:focus {
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 卡片悬停效果 */
+.ant-card {
+  transition: all 0.3s ease;
+}
+
+.ant-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 列表项动画 */
+.ant-list-item {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 成功图标动画 */
+.ant-result-success .anticon {
+  animation: successPop 0.5s ease-out;
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,71 @@
+/* 用户信息区域动画 */
+.user-info {
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.user-info:hover {
+  background: rgba(24, 144, 255, 0.1);
+}
+
+/* 登录按钮动画 */
+.login-btn {
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+/* 页面内容区域动画 */
+.page-content {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 侧边栏菜单项动画 */
+.ant-menu-item {
+  transition: all 0.3s ease;
+}
+
+.ant-menu-item:hover {
+  padding-left: 24px !important;
+}
+
+/* 菜单图标动画 */
+.ant-menu-item .anticon {
+  transition: all 0.3s ease;
+}
+
+.ant-menu-item:hover .anticon {
+  transform: scale(1.2);
+}
+
+/* 选中菜单项样式 */
+.ant-menu-item-selected {
+  font-weight: 500;
+}
+
+.ant-menu-item-selected::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: #1890ff;
+  border-radius: 2px 0 0 2px;
+}

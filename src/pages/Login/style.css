@@ -1,0 +1,87 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 24px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.login-card {
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式适配 */
+@media (max-width: 576px) {
+  .login-page {
+    padding: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .login-card {
+    border-radius: 12px;
+  }
+
+  .login-header h3 {
+    font-size: 24px;
+  }
+}
+
+/* 输入框动画 */
+.login-card .ant-input-affix-wrapper {
+  transition: all 0.3s ease;
+}
+
+.login-card .ant-input-affix-wrapper:hover,
+.login-card .ant-input-affix-wrapper:focus {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.15);
+}
+
+/* 按钮动画 */
+.login-card .ant-btn {
+  transition: all 0.3s ease;
+}
+
+.login-card .ant-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+}
+
+.login-card .ant-btn:active {
+  transform: translateY(0);
+}
+
+/* Tab 切换动画 */
+.login-card .ant-tabs-tab {
+  transition: all 0.3s ease;
+}
+
+.login-card .ant-tabs-tab:hover {
+  color: #1890ff;
+}
