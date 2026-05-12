@@ -240,6 +240,7 @@ JobMate-AI/
 ## 🤝 贡献指南
 
 欢迎提交 Issue 和 Pull Request！
+本项目暂时仅为demo设计，具体完整功能仅有雏形，期待后续优化
 
 1. Fork 本项目
 2. 创建分支：`git checkout -b feature/your-feature`
