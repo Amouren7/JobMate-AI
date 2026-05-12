@@ -154,19 +154,14 @@ gh-pages -d dist
 ---
 
 ## 📸 截图预览
-
-### 登录页面
-![登录](docs/screenshots/login.png)
-
 ### 简历优化
-![简历优化](docs/screenshots/resume.png)
+"C:\Users\Administrator\Pictures\Screenshots\屏幕截图 2026-05-12 101853.png"
 
 ### JD 分析
-![JD分析](docs/screenshots/jd.png)
+"C:\Users\Administrator\Pictures\Screenshots\屏幕截图 2026-05-12 102037.png"
 
 ### AI 设置
-![AI设置](docs/screenshots/settings.png)
-
+"C:\Users\Administrator\Pictures\Screenshots\屏幕截图 2026-05-12 102104.png"
 ---
 
 ## 📁 项目结构
