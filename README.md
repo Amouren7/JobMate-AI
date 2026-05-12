@@ -155,13 +155,16 @@ gh-pages -d dist
 
 ## 📸 截图预览
 ### 简历优化
-"C:\Users\Administrator\Pictures\Screenshots\屏幕截图 2026-05-12 101853.png"
+<img width="1919" height="949" alt="屏幕截图 2026-05-12 101853" src="https://github.com/user-attachments/assets/09f550d8-c47a-414f-abb0-2ba424c0641b" />
+
 
 ### JD 分析
-"C:\Users\Administrator\Pictures\Screenshots\屏幕截图 2026-05-12 102037.png"
+<img width="1915" height="936" alt="屏幕截图 2026-05-12 102037" src="https://github.com/user-attachments/assets/feb3f56e-db33-4d97-a756-0a4e60be457b" />
+
 
 ### AI 设置
-"C:\Users\Administrator\Pictures\Screenshots\屏幕截图 2026-05-12 102104.png"
+<img width="1919" height="946" alt="屏幕截图 2026-05-12 102104" src="https://github.com/user-attachments/assets/3f600d9f-4958-4c51-827c-2ce922b85d72" />
+
 ---
 
 ## 📁 项目结构
