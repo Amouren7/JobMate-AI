@@ -157,7 +157,7 @@ function Home() {
       <Row gutter={[24, 24]}>
         {features.map((feature) => (
           <Col span={12} key={feature.path}>
-            <Badge count={feature.badge} offset={[-10, 10}>
+            <Badge count={feature.badge} offset={[-10, 10]}>
               <Card
                 className="hover-card"
                 style={{
