@@ -65,6 +65,22 @@ interface AIResponse {
   };
 }
 
+// 求职信请求
+export interface CoverLetterRequest {
+  companyName: string;
+  position: string;
+  jdContent: string;
+  resumeSummary: string;
+  tone?: 'formal' | 'casual' | 'enthusiastic';
+}
+
+// 求职信响应
+export interface CoverLetterResponse {
+  coverLetter: string;
+  keyPoints: string[];
+  tips: string[];
+}
+
 // 基础 AI 调用函数
 async function callAI(prompt: string, config: AIServiceConfig): Promise<AIResponse> {
   const { provider, apiKey, model, baseUrl } = config;
@@ -399,6 +415,54 @@ export async function prepareInterview(request: InterviewPrepRequest): Promise<I
     const jsonMatch = response.content.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
       return JSON.parse(jsonMatch[0]) as InterviewPrepResponse;
+    }
+    throw new Error('返回格式不正确');
+  } catch (error) {
+    console.error('解析 AI 响应失败:', error);
+    throw new Error('AI 返回格式错误，请重试');
+  }
+}
+
+// 求职信生成服务
+export async function generateCoverLetter(request: CoverLetterRequest): Promise<CoverLetterResponse> {
+  const config = loadConfig();
+  if (!config) {
+    throw new Error('请先配置 AI API');
+  }
+
+  const toneMap = {
+    formal: '正式、专业的语气',
+    casual: '轻松、自然的语气',
+    enthusiastic: '热情、积极的语气',
+  };
+
+  const prompt = `请为以下职位生成一封中文求职信。
+
+公司名称：${request.companyName}
+目标职位：${request.position}
+语气风格：${toneMap[request.tone || 'formal']}
+
+职位描述(JD)：
+${request.jdContent}
+
+候选人简历摘要：
+${request.resumeSummary}
+
+请按以下 JSON 格式返回：
+{
+  "coverLetter": "完整的求职信内容（分段格式化，包含称呼、正文、结尾）",
+  "keyPoints": ["求职信重点1", "重点2", ...],
+  "tips": ["投递建议1", "建议2", ...]
+}
+
+注意：仅返回 JSON 数据，不要添加任何其他说明文字。求职信内容中使用 \\n 表示换行。`;
+
+  const response = await callAI(prompt, config);
+
+  try {
+    const jsonMatch = response.content.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      return JSON.parse(jsonMatch[0]) as CoverLetterResponse;
     }
     throw new Error('返回格式不正确');
   } catch (error) {

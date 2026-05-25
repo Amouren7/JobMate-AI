@@ -7,6 +7,7 @@ import InterviewPrep from './pages/InterviewPrep';
 import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
+import Applications from './pages/Applications';
 
 function App() {
   const location = useLocation();
@@ -28,6 +29,7 @@ function App() {
         <Route path="/resume" element={<ResumeOptimize />} />
         <Route path="/jd" element={<JDAnalyze />} />
         <Route path="/interview" element={<InterviewPrep />} />
+        <Route path="/applications" element={<Applications />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>

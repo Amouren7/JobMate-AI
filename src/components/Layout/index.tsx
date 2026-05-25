@@ -11,6 +11,7 @@ import {
   UserOutlined,
   LogoutOutlined,
   LoginOutlined,
+  SendOutlined,
 } from '@ant-design/icons';
 import type { ReactNode } from 'react';
 import { getCurrentUser, isAuthenticated, logout, type User } from '../../types/user';
@@ -56,6 +57,7 @@ function Layout({ children }: LayoutProps) {
     { key: '/resume', icon: <FileTextOutlined />, label: '简历优化' },
     { key: '/jd', icon: <SearchOutlined />, label: 'JD分析' },
     { key: '/interview', icon: <MessageOutlined />, label: '面试准备' },
+    { key: '/applications', icon: <SendOutlined />, label: '投递管理' },
     { key: '/dashboard', icon: <DashboardOutlined />, label: '数据看板' },
     { key: '/settings', icon: <SettingOutlined />, label: 'AI设置' },
   ];

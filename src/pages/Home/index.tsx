@@ -1,16 +1,25 @@
-import { Row, Col, Card, Statistic, Button } from 'antd';
+import { useState, useEffect } from 'react';
+import { Row, Col, Card, Statistic, Button, Alert, Badge } from 'antd';
 import {
   FileTextOutlined,
   SearchOutlined,
   MessageOutlined,
   TrophyOutlined,
   ArrowRightOutlined,
+  SendOutlined,
+  BellOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { mockStats } from '../../mock/data';
+import { getApplicationStats } from '../../types/application';
 
 function Home() {
   const navigate = useNavigate();
+  const [appStats, setAppStats] = useState<{ followUpCount: number } | null>(null);
+
+  useEffect(() => {
+    setAppStats(getApplicationStats());
+  }, []);
 
   const features = [
     {
@@ -35,6 +44,14 @@ function Home() {
       color: '#f9f0ff',
     },
     {
+      title: '投递管理',
+      desc: '记录投递，AI提醒跟进，生成求职信',
+      icon: <SendOutlined style={{ fontSize: 48, color: '#eb2f96' }} />,
+      path: '/applications',
+      color: '#fff0f6',
+      badge: appStats?.followUpCount ? appStats.followUpCount : undefined,
+    },
+    {
       title: '数据看板',
       desc: '追踪求职进度，可视化分析',
       icon: <TrophyOutlined style={{ fontSize: 48, color: '#fa8c16' }} />,
@@ -45,6 +62,22 @@ function Home() {
 
   return (
     <div>
+      {/* 跟进提醒 */}
+      {appStats && appStats.followUpCount > 0 && (
+        <Alert
+          message={<><BellOutlined style={{ marginRight: 8 }} />有 {appStats.followUpCount} 个投递需要跟进</>}
+          description="超过7天未跟进的投递记录，建议及时联系HR了解进展"
+          type="warning"
+          showIcon
+          style={{ marginBottom: 24 }}
+          action={
+            <Button size="small" type="link" onClick={() => navigate('/applications')}>
+              查看投递
+            </Button>
+          }
+        />
+      )}
+
       {/* Hero Section */}
       <div
         style={{
@@ -124,23 +157,25 @@ function Home() {
       <Row gutter={[24, 24]}>
         {features.map((feature) => (
           <Col span={12} key={feature.path}>
-            <Card
-              className="hover-card"
-              style={{
-                cursor: 'pointer',
-                background: feature.color,
-                border: 'none',
-              }}
-              onClick={() => navigate(feature.path)}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-                {feature.icon}
-                <div>
-                  <h3 style={{ marginBottom: 8, fontSize: 20 }}>{feature.title}</h3>
-                  <p style={{ color: '#666', margin: 0 }}>{feature.desc}</p>
+            <Badge count={feature.badge} offset={[-10, 10}>
+              <Card
+                className="hover-card"
+                style={{
+                  cursor: 'pointer',
+                  background: feature.color,
+                  border: 'none',
+                }}
+                onClick={() => navigate(feature.path)}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+                  {feature.icon}
+                  <div>
+                    <h3 style={{ marginBottom: 8, fontSize: 20 }}>{feature.title}</h3>
+                    <p style={{ color: '#666', margin: 0 }}>{feature.desc}</p>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </Badge>
           </Col>
         ))}
       </Row>
